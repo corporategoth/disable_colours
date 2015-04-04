@@ -1,0 +1,17 @@
+services:
+    prez.disable_colours.acplistener:
+        class: prez\disable_colours\event\acplistener
+        arguments:
+            - @controller.helper
+            - @user
+        tags:
+            - { name: event.listener }
+    prez.disable_colours.mainlistener:
+        class: prez\disable_colours\event\mainlistener
+        arguments:
+            - @config
+            - @controller.helper
+            - %core.root_path%
+            - %core.php_ext%
+        tags:
+            - { name: event.listener }
